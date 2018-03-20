@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsd.excel.server.service.impl.dao.ReceiveOrderDao">
+	<resultMap id="BaseResultMap" type="com.lsd.excel.model.ReceiveOrder">
+		<id column="receive_order_fid" jdbcType="INTEGER" property="receiveOrderFid" />
+		<result column="branch_num" jdbcType="INTEGER" property="branchNum" />
+		<result column="storehouse_num" jdbcType="INTEGER" property="storehouseNum" />
+		<result column="supplier_num" jdbcType="INTEGER" property="supplierNum" />
+		<result column="receive_order_operator" jdbcType="VARCHAR" property="receiveOrderOperator" />
+		<result column="receive_order_payment_date" jdbcType="DATE" property="receiveOrderPaymentDate" />
+		<result column="receive_order_memo" jdbcType="VARCHAR" property="receiveOrderMemo" />
+		<result column="receive_order_state_code" jdbcType="INTEGER" property="receiveOrderStateCode" />
+		<result column="receive_order_state_name" jdbcType="VARCHAR" property="receiveOrderStateName" />
+		<result column="receive_order_creator" jdbcType="VARCHAR" property="receiveOrderCreator" />
+		<result column="receive_order_auditor" jdbcType="VARCHAR" property="receiveOrderAuditor" />
+		<result column="receive_order_total_money" jdbcType="REAL" property="receiveOrderTotalMoney" />
+		<result column="receive_order_discount_money" jdbcType="REAL" property="receiveOrderDiscountMoney" />
+		<result column="receive_order_due_money" jdbcType="REAL" property="receiveOrderDueMoney" />
+		<result column="receive_order_paid_money" jdbcType="REAL" property="receiveOrderPaidMoney" />
+		<result column="receive_order_lastest_payment_date" jdbcType="DATE" property="receiveOrderLastestPaymentDate" />
+		<result column="receive_order_create_time" jdbcType="TIMESTAMP" property="receiveOrderCreateTime" />
+		<result column="receive_order_audit_time" jdbcType="TIMESTAMP" property="receiveOrderAuditTime" />
+		<result column="receive_order_bizday" jdbcType="CHAR" property="receiveOrderBizday" />
+		<result column="receive_order_carried" jdbcType="INTEGER" property="receiveOrderCarried" />
+		<result column="department_num" jdbcType="INTEGER" property="departmentNum" />
+		<result column="receive_order_operate_date" jdbcType="DATE" property="receiveOrderOperateDate" />
+			
+	
+	</resultMap>
+	<sql id="allColumns">
+		receive_order_fid, branch_num, storehouse_num, supplier_num, receive_order_operator,
+		receive_order_payment_date, receive_order_memo,
+		receive_order_state_code, receive_order_state_name,
+		receive_order_creator, receive_order_auditor,
+		receive_order_total_money, receive_order_discount_money,
+		receive_order_due_money, receive_order_paid_money,
+		receive_order_lastest_payment_date,
+		receive_order_create_time, receive_order_audit_time, receive_order_bizday,
+		receive_order_carried, department_num, receive_order_operate_date
+	</sql>
+	
+	<select id="list" resultMap="BaseResultMap">
+		
+		select * 
+		
+		from receive_order limit #{offset} ,#{limit}
+	
+	</select>
+	
+	<select id="count" resultType="Integer">
+		select count(*) 
+		from receive_order 
+	</select>
+	
+	<update id="update" >
+		update receive_order set branch_num=111 where receive_order_fid = 1
+	</update>
+	
+	
+<cache />
+	
+</mapper>
